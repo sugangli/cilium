@@ -88,7 +88,7 @@ pipeline {
                         retry(25) {
                             sleep(time: 60)
                             sh 'curl --silent -f -lSL "https://quay.io/api/v1/repository/cilium/cilium-ci/tag/${DOCKER_TAG}/images"'
-                            sh 'curl --silent -f -lSL "https://quay.io/api/v1/repository/cilium/operator-ci/tag/${DOCKER_TAG}/images"'
+                            sh 'curl --silent -f -lSL "https://quay.io/api/v1/repository/cilium/operator-generic-ci/tag/${DOCKER_TAG}/images"'
                             sh 'curl --silent -f -lSL "https://quay.io/api/v1/repository/cilium/hubble-relay-ci/tag/${DOCKER_TAG}/images"'
                         }
                     }
@@ -135,7 +135,7 @@ pipeline {
                 CNI_INTEGRATION="gke"
                 CILIUM_IMAGE = "quay.io/cilium/cilium-ci"
                 CILIUM_TAG = "${DOCKER_TAG}"
-                CILIUM_OPERATOR_IMAGE= "quay.io/cilium/operator"
+                CILIUM_OPERATOR_IMAGE= "quay.io/cilium/operator-generic"
                 CILIUM_OPERATOR_TAG = "${DOCKER_TAG}"
                 HUBBLE_RELAY_IMAGE= "quay.io/cilium/hubble-relay-ci"
                 HUBBLE_RELAY_TAG = "${DOCKER_TAG}"
